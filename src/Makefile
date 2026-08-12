@@ -402,7 +402,8 @@ luarocks:
 	# lua-resty-memcached's t/tls.t needs a TLS-enabled memcached; distro
 	# packages aren't consistently built with TLS support, so build our own
 	# (same secure_download + checksum verification as production deps).
-	$(call secure_download,https://memcached.org/files/memcached-${VER_MEMCACHED_TEST}.tar.gz,/memcached-test.tar.gz,${SHA256_MEMCACHED_TEST})
+	# $(call secure_download,https://memcached.org/files/memcached-${VER_MEMCACHED_TEST}.tar.gz,/memcached-test.tar.gz,${SHA256_MEMCACHED_TEST})
+	$(call secure_download,https://mirrors.huaweicloud.com/memcached/memcached-${VER_MEMCACHED_TEST}.tar.gz,/memcached-test.tar.gz,${SHA256_MEMCACHED_TEST})
 	tar -C / -xzf /memcached-test.tar.gz
 	cd /memcached-${VER_MEMCACHED_TEST} \
 		&& ./configure --enable-tls \

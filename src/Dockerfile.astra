@@ -520,12 +520,9 @@ RUN set -x \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
-# Upgrade software to latest version
-# ##############################################################################
-RUN apt-get upgrade -y \
 # Cleanup
 # ##############################################################################
-    && apt-get autoremove -y \
+RUN apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
 
 # smoke test

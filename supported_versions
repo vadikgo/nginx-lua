@@ -1,5 +1,5 @@
 nginx_mainline=1.31.2
-nginx_stable=1.30.3
+nginx_stable=1.31.2
 almalinux=10.2-20260602
 alpine=3.24.1
 amazonlinux=2023.12.20260706.1
