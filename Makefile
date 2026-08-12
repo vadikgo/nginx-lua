@@ -23,7 +23,7 @@ BUNDLE_CMD:=./bin/docker-bundle.py
 TEST_CMD:=./bin/test.sh
 SEC_CMD:=./bin/test-security.sh
 META_CMD:=./bin/docker-metadata.py
-DISTROS=almalinux alpine amazonlinux debian fedora ubuntu
+DISTROS=almalinux alpine amazonlinux debian fedora ubuntu astra
 
 GH_USERNAME=fabiocicerchia
 GH_CLI_NAME=ghr_v0.16.2_linux_amd64
