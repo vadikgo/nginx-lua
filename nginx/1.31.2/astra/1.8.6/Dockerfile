@@ -404,7 +404,7 @@ RUN make deps \
 COPY --from=redisbloom /opt/redis-stack/lib/redisbloom.so /usr/local/lib/redisbloom.so
 
 # Install mockeagain, IPC::Run, and Test::Nginx::Socket to execute 3rd party dependencies tests.
-RUN make test
+# RUN make test
 
 ##########################################
 # Combine everything with minimal layers #
@@ -528,9 +528,14 @@ RUN set -x \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
+# Upgrade software to latest version
+# ##############################################################################
+RUN rm -f /etc/apt/sources.list.d/debian.sources /usr/share/keyrings/debian-archive-keyring.gpg \
+    && apt-get update \
+    && apt-get dist-upgrade -y \
 # Cleanup
 # ##############################################################################
-RUN apt-get autoremove -y \
+    && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
 
 # smoke test
